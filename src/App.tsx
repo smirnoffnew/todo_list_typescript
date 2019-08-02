@@ -1,25 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Paper } from "@material-ui/core";
+import  NewTask  from './components/NewTask'
+import TaskList from './components/TaskList'
 
 const App: React.FC = () => {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Paper 
+      component="div" 
+      elevation={2} 
+      style={{
+        marginTop: "2rem",
+        marginBottom: "2rem",
+        padding: "2%",}} 
+    >
+      <div style={{
+        height: "30rem",
+        display: 'flex', 
+        flexDirection: 'row', 
+        alignItems:'flex-start', 
+        justifyContent: 'flex-start',
+        alignContent: 'stretch',
+      }}
+      >
+        <div style={{
+          height: "100%",
+          width: '30%', 
+          paddingRight: '2%',
+          borderRight: '2px solid #cccccc'}}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <NewTask />
+        </div>
+        <div style={{ 
+          height: "100%", 
+          width: '70%', 
+          paddingLeft: '2%', }}
+        >
+          <TaskList />
+        </div>
+      </div>
+    </Paper>
   );
 }
 
