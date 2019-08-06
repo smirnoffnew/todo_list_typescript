@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { Typography, Button } from "@material-ui/core";
 import { AppState } from "../store";
 import { TaskState } from "../store/tasks/types";
@@ -74,5 +75,7 @@ const mapStateToProps = (state: AppState) => ({
   taskList: state.tasks,
 });
 
+const mapDispatchToProps = (dispatch: Dispatch) =>
+    bindActionCreators( { deleteTask }, dispatch );
 
-export default connect( mapStateToProps, { deleteTask })(TaskList);
+export default connect(mapStateToProps, mapDispatchToProps)(TaskList);

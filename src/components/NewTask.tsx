@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { TextField, Button, Typography } from "@material-ui/core";
 import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { AppState } from "../store";
 
 import { TaskState } from "../store/tasks/types";
@@ -111,12 +112,16 @@ class NewTask extends Component<NewTaskProps, NewTaskState> {
 }
 
 
-
 const mapStateToProps = (state: AppState) => ({
     taskList: state.tasks,
 });
 
+
+const mapDispatchToProps = (dispatch: Dispatch) =>
+  bindActionCreators({addTask}, dispatch);
+
+
 export default connect(
     mapStateToProps,
-    { addTask }
+    mapDispatchToProps
 )(NewTask);
