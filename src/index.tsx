@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux';
-import configureStore from './store';
+// import configureStore from './store';
+import store_ from './store';
 import { CssBaseline, Container } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 import theme from './theme';
 
-const store = configureStore();
+const store = store_;
 
 const Root = () => (
     <Provider store={store}>
